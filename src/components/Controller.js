@@ -148,7 +148,9 @@ export class Controller extends Component {
 
   // select the wanted floor
   insideButton = e => {
-    this.callElevator(Number(e.target.value), this.state.elevatorName)
+    const { elevatorName } = this.state
+    if (!this.state.elevators[elevatorName].isMoving)
+      this.callElevator(Number(e.target.value), this.state.elevatorName)
     this.toggle()
   }
 
