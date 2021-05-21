@@ -2,7 +2,7 @@
 
 This is a simple system which controls the elevator in a building. There are 7 floors in a block and only 2 lifts. Initially Lift A is at the ground floor and Lift B at the top floor.
 
-# Functionalities
+### Functionalities
 
 The whole functionalities are implemented in components/Controller.js
 
