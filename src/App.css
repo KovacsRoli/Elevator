@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  background-color: moccasin;
+}
+
+.container {
+  padding-top: 4em;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+.col-sm-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  background-color: gainsboro;
+  height: 5em;
+}
+
+.btn-primary, .btn-danger {
+  height: 4em;
+}
