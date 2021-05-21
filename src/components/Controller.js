@@ -156,20 +156,42 @@ export class Controller extends Component {
     const array = [6, 5, 4, 3, 2, 1, 0]
     const { elevatorA, elevatorB } = this.state.elevators
 
+    let firstButtonText = 'Stand'
+    if (elevatorA.isMoving && elevatorA.direction === 1)
+      firstButtonText = 'Moving up'
+    else if (elevatorA.isMoving)
+      firstButtonText = 'Moving down'
+
+    let secondButtonText = 'Stand'
+    if (elevatorB.isMoving && elevatorB.direction === 1)
+      secondButtonText = 'Moving up'
+    else if (elevatorB.isMoving)
+      secondButtonText = 'Moving down'
+
     return (
       <div>
         <Container>
           {array.map((num) =>
             <Row key={num}>
+              <Col sm={{ size: 2 }}>
+                {firstButtonText}
+              </Col>
               <Col sm={{ size: 1, offset: 1 }}>
-                {num === elevatorA.currentPosition ? <Button value='elevatorA' color='primary' onClick={e => this.setElevator(e)}>Elevator</Button> : num}
+                {num === elevatorA.currentPosition
+                  ? <Button value='elevatorA' color='primary' onClick={e => this.setElevator(e)}>{firstButtonText}</Button>
+                  : num}
               </Col>
               <Col sm={{ size: 2, offset: 1 }}>
                 <Button value={num} onClick={e => this.onClick(e)}>up</Button>
                 <Button value={num} onClick={e => this.onClick(e)}>down</Button>
               </Col>
               <Col sm={{ size: 1, offset: 1 }}>
-                {num === elevatorB.currentPosition ? <Button value='elevatorB' color='danger' onClick={e => this.setElevator(e)}>Elevator</Button> : num}
+                {num === elevatorB.currentPosition
+                  ? <Button value='elevatorB' color='danger' onClick={e => this.setElevator(e)}>{secondButtonText}</Button>
+                  : num}
+              </Col>
+              <Col sm={{ size: 2, offset: 1 }}>
+                {secondButtonText}
               </Col>
             </Row>
           )}
